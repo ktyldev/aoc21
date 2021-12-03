@@ -9,6 +9,7 @@ int main()
 
     int depth = 0;
     int hpos = 0;
+    int aim = 0;
 
     // open input file for reading
     fp = fopen(inputFilename, "r");
@@ -27,18 +28,19 @@ int main()
         {
             case 'f':
                 hpos += amount;
+                depth += aim * amount;
                 break;
             case 'd':
-                depth += amount;
+                aim += amount;
                 break;
             case 'u':
-                depth -= amount;
+                aim -= amount;
                 break;
 
             default: break;
         }
 
-        printf("%c: %d -> d: %d h: %d\n", dir, amount, depth, hpos);
+        printf("%c: %d -> a: %d d: %d h: %d\n", dir, amount, aim, depth, hpos);
     }
 
     printf("hpos: %d\n", hpos);
